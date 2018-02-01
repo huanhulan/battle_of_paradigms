@@ -1,0 +1,70 @@
+<html>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+<title>battle of paradigms</title>
+<head>
+    <link href="./dist/stylesheets/main.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="viewport">
+    <div class="container" id="operational">
+        <div class="canvas">
+        </div>
+        <div class="canvas" id="minimal_op">
+            <p>won't repaint when drag, operational</p>
+        </div>
+        <div class="canvas">
+        </div>
+        <div class="canvas" id="dragging_op">
+            <p>repaint when drag, operational</p>
+        </div>
+        <div class="canvas">
+        </div>
+        <div class="canvas" id="fixed_op">
+            <p>start repaint when drag more than 5 pixels, operational</p>
+        </div>
+        <div class="canvas">
+        </div>
+        <div class="canvas" id="shift_op">
+            <p>add axis-lock, operational</p>
+        </div>
+    </div>
+    <div class="container" id="frp">
+        <div class="canvas" id="minimal_frp_pic">
+        </div>
+        <div class="canvas" id="minimal_frp">
+            <p>won't repaint when drag, frp</p>
+        </div>
+        <div class="canvas" id="dragging_frp_pic">
+        </div>
+        <div class="canvas" id="dragging_frp">
+            <p>repaint when drag, frp</p>
+        </div>
+        <div class="canvas" id="fixed_frp_pic">
+        </div>
+        <div class="canvas" id="fixed_frp">
+            <p>start repaint when drag more than 5 pixels, frp</p>
+        </div>
+        <div class="canvas" id="shift_frp_pic">
+        </div>
+        <div class="canvas" id="shift_frp">
+            <p>add axis-lock, frp</p>
+        </div>
+    </div>
+    <nav class="bottom-pagination">
+        <a class="button pagination-button" href="#operational" data-key="left">
+            <svg id="arrow-left-mini" viewBox="-100.9 99.1 61.9 105.9" width="100%" height="100%">
+                <path d="M-98.2 158.8l43.5 43.5c1.7 1.7 4 2.7 6.5 2.7s4.8-1 6.5-2.7c1.7-1.7 2.7-4 2.7-6.5s-1-4.8-2.7-6.5l-37.2-37.2 37.2-37.2c1.7-1.7 2.7-4 2.7-6.5s-1-4.8-2.6-6.5c-1.8-1.9-4.2-2.8-6.6-2.8-2.3 0-4.6.9-6.5 2.6-11.5 11.4-41.2 41-43.3 43l-.2.2c-3.6 3.6-3.6 10.3 0 13.9z"></path>
+            </svg>
+        </a>
+        <a class="button pagination-button" href="#frp" data-key="right">
+            <svg id="arrow-right-mini" viewBox="-100.9 99.1 61.9 105.9" width="100%" height="100%">
+                <path d="M-41.7 145.3l-43.5-43.5c-1.7-1.7-4-2.7-6.5-2.7s-4.8 1-6.5 2.7c-1.7 1.7-2.7 4-2.7 6.5s1 4.8 2.7 6.5L-61 152l-37.2 37.2c-1.7 1.7-2.7 4-2.7 6.5s1 4.8 2.6 6.5c1.8 1.9 4.2 2.8 6.6 2.8 2.3 0 4.6-.9 6.5-2.6 11.5-11.4 41.2-41 43.3-43l.2-.2c3.6-3.6 3.6-10.4 0-13.9z"></path>
+            </svg>
+        </a>
+    </nav>
+</div>
+<script src="./dist/bundle.js"></script>
+</body>
+</html>

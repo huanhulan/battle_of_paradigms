@@ -1,0 +1,8 @@
+{
+  "minify": true,
+  "feature-detects": [
+    "test/css/cssgrid",
+    "test/css/flexbox",
+    "test/css/cssvwunit"
+  ]
+}
