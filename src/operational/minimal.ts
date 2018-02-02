@@ -24,7 +24,6 @@ class Minimal extends Base {
         const dx = cords.x - this.dragging.startPos.x;
         const dy = cords.y - this.dragging.startPos.y;
         this.doc = insertShape(this.doc, shiftBy(this.dragging.shape, dx, dy));
-        this.render();
 
         // potential bug source: update the internal state
         this.dragging = null;

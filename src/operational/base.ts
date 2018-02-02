@@ -6,7 +6,7 @@ class BaseDragNDrop {
     public colors: string[];
     protected ctx: CanvasRenderingContext2D;
     protected canvas: HTMLCanvasElement;
-    protected doc: DOCUMENT;
+    private _doc: DOCUMENT;
     protected dragging: Optional<IDragging> = null;
 
     constructor(id, initDoc) {
@@ -16,10 +16,18 @@ class BaseDragNDrop {
         }
         this.ctx = $canvas.ctx as CanvasRenderingContext2D;
         this.canvas = $canvas.canvas as HTMLCanvasElement;
-        this.doc = initDoc;
         this.colors = [0, 1].map(i => makeColor());
         this.bindEvents();
-        this.render();// render gets called in different places
+        this.doc = initDoc;
+    }
+
+    set doc(newDoc: DOCUMENT) {
+        this._doc = newDoc;
+        this.render();
+    }
+
+    get doc() {
+        return this._doc;
     }
 
     protected bindEvents() {

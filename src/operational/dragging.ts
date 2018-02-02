@@ -16,6 +16,7 @@ class Dragging extends Minimal {
         this.canvas.addEventListener('mousemove', handleMouseMove);
     }
 
+
     // this method does more than one job
     protected handleMouseMove(cords) {
         if (this.dragging === null) {//Potential source of bugs: explicit state check
@@ -23,8 +24,7 @@ class Dragging extends Minimal {
         }
         const dx = cords.x - this.dragging.startPos.x;
         const dy = cords.y - this.dragging.startPos.y;
-        this.doc = insertShape(this.doc, shiftBy(this.dragging.shape, dx, dy));
-        this.render();
+        this.doc = insertShape(this.doc, shiftBy(this.dragging.shape, dx, dy));// doc is set in different place
         return null;
     }
 }

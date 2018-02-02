@@ -1,5 +1,5 @@
-import {CellLoop, Stream, StreamSink, Transaction} from 'sodiumjs';
-import {findPolygon, insertShape, shiftBy} from '../lib';
+import {CellLoop, Stream, StreamSink} from 'sodiumjs';
+import {findPolygon, insertShape, shiftBy, getDist} from '../lib';
 import {DOCUMENT, IDragging, IPos, Optional} from '../types';
 
 /**
@@ -36,8 +36,8 @@ export default (sMouseDown: StreamSink<IPos>,
         if (dragging === null) {
             return null;
         }
-        const dist = Math.sqrt(Math.pow((pos.x - dragging.startPos.x), 2)
-            + Math.pow((pos.y - dragging.startPos.y), 2));
+
+        const dist = getDist(pos.x, pos.y, dragging.startPos.x, dragging.startPos.y);
         if (dist <= 5) {
             return null;
         }

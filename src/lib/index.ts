@@ -5,7 +5,8 @@ import makeCanvas from './makeCanvas';
 import shiftBy from './shiftBy';
 import paint from './paint';
 import makeColor from './makeColor';
+import getDist from './getDist';
 
 export {
-    findPolygon, getCords, insertShape, makeCanvas, shiftBy, paint, makeColor
+    findPolygon, getCords, insertShape, makeCanvas, shiftBy, paint, makeColor, getDist
 }

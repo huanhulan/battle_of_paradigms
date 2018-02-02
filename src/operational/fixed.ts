@@ -1,6 +1,6 @@
 import throttle from 'lodash.throttle';
 import Dragging from './dragging';
-import {insertShape, shiftBy, getCords, findPolygon} from '../lib';
+import {insertShape, shiftBy, getCords, findPolygon, getDist} from '../lib';
 import {Optional, IDragging} from '../types';
 
 class Fixed extends Dragging {
@@ -34,8 +34,8 @@ class Fixed extends Dragging {
         if (this.pending === null) {
             return null;
         }
-        const dist = Math.sqrt(Math.pow((cords.x - this.pending.startPos.x), 2)
-            + Math.pow((cords.y - this.pending.startPos.y), 2));
+
+        const dist = getDist(cords.x, cords.y, this.pending.startPos.x, this.pending.startPos.y);
         if (this.pending === null || dist <= 5) {//Potential source of bugs: explicit state check
             return null;
         }
@@ -43,7 +43,6 @@ class Fixed extends Dragging {
         const dx = cords.x - this.dragging.startPos.x;
         const dy = cords.y - this.dragging.startPos.y;
         this.doc = insertShape(this.doc, shiftBy(this.dragging.shape, dx, dy));
-        this.render();
         return null;
     }
 
