@@ -1,7 +1,7 @@
 {
   "name": "battle_of_paradigms",
   "version": "1.0.0",
-  "description": "petrol-pump example for frp",
+  "description": "battle_of_paradigms example for frp",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config ./build/webpack.prod.js",
@@ -50,7 +50,8 @@
     "webpack-merge": "^4.1.1"
   },
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/huanhulan/battle_of_paradigms.git"
   },
   "config": {
     "commitizen": {
