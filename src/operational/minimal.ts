@@ -1,16 +1,9 @@
 import Base from './base';
 import {findPolygon, insertShape, shiftBy} from '../lib';
-import {Optional, IDragging} from '../types';
 
 class Minimal extends Base {
-    private dragging: Optional<IDragging>;
-
     constructor(id, initDoc) {
         super(id, initDoc);
-    }
-
-    bindEvents() {
-        super.bindEvents();
     }
 
     protected handleMouseDown(cords) {
@@ -21,6 +14,7 @@ class Minimal extends Base {
                 startPos: cords
             };
         }
+        return null;
     }
 
     protected handleMouseUp(cords) {
@@ -34,6 +28,7 @@ class Minimal extends Base {
 
         // potential bug source: update the internal state
         this.dragging = null;
+        return null;
     }
 }
 

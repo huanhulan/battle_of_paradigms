@@ -1,5 +1,5 @@
 import {makeCanvas, getCords, paint, makeColor} from '../lib';
-import {IPos, DOCUMENT} from '../types';
+import {IPos, DOCUMENT, Optional, IDragging} from '../types';
 import throttle from 'lodash.throttle';
 
 class BaseDragNDrop {
@@ -7,6 +7,7 @@ class BaseDragNDrop {
     protected ctx: CanvasRenderingContext2D;
     protected canvas: HTMLCanvasElement;
     protected doc: DOCUMENT;
+    protected dragging: Optional<IDragging> = null;
 
     constructor(id, initDoc) {
         const $canvas = makeCanvas(id);
@@ -18,7 +19,7 @@ class BaseDragNDrop {
         this.doc = initDoc;
         this.colors = [0, 1].map(i => makeColor());
         this.bindEvents();
-        this.render();
+        this.render();// render gets called in different places
     }
 
     protected bindEvents() {
@@ -40,9 +41,11 @@ class BaseDragNDrop {
     }
 
     protected handleMouseDown(cords: IPos) {
+        return null;
     }
 
     protected handleMouseUp(cords: IPos) {
+        return null;
     }
 
     protected render() {

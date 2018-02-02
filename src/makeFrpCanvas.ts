@@ -9,6 +9,7 @@ export default (id, initDoc, frpLogic) => {
         if ($canvas === null) {
             return;
         }
+
         let cDoc;
         const ctx = $canvas.ctx as CanvasRenderingContext2D;
         const sMouseDown = new StreamSink<IPos>();
@@ -21,6 +22,7 @@ export default (id, initDoc, frpLogic) => {
         const DOG_BG = makeColor();
         const CAT_BG = makeColor();
 
+        // bind events
         window.addEventListener('resize', e => {
             throttledResize(e);
             return false;
@@ -33,6 +35,8 @@ export default (id, initDoc, frpLogic) => {
             throttledMouseUp(e);
             return false;
         });
+
+        // get document
         if (frpLogic.length >= 4) {
             const sMouseMove = new StreamSink<IPos>();
             const throttledMouseMove = throttledStream(sMouseMove);
@@ -61,6 +65,8 @@ export default (id, initDoc, frpLogic) => {
         } else {
             cDoc = frpLogic(sMouseDown, sMouseUp, initDoc);
         }
+
+        // now let's paint!
         sResize.snapshot1(cDoc).orElse(Operational.value(cDoc)).listen((doc) => {
             paint(doc, ctx, [CAT_BG, DOG_BG]);
         });
