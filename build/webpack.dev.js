@@ -17,12 +17,7 @@ const sassLoaderOptions = {
 module.exports = merge(common(cssLoaderOptions, sassLoaderOptions), {
     devServer: {
         compress: true,
-        port: 3000
-    },
-    output: {
-        filename: "bundle.js",
-        path: __dirname + "/../dist",
-        publicPath: "/dist/"
+        port: 3002
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),

@@ -3,7 +3,7 @@ import {INIT_DOC} from './consts';
 import './style/index.scss';
 import {minimal_frp, dragging_frp, fixed_frp, shift_frp, refined_shift_frp} from './frp';
 import {Minimal, Dragging, Fixed, Shift} from './operational';
-import * as modernizrConfig from "./../.modernizrrc.json";
+import * as modernizrConfig from "../.modernizrrc.json";
 
 const modernizr = modernizrConfig;
 const $app = document.getElementById("viewport");
@@ -13,8 +13,8 @@ window.onload = () => {
     if (!$app) {
         return;
     }
-    if (!modernizr.cssvhunit || !modernizr.cssgrid || !modernizr.flexbox || !modernizr.canvas) {
-        $app.innerHTML = 'please use modern browsers like Chrome to get the best user experience.'
+    if (!modernizr.cssgrid || !modernizr.flexbox || !modernizr.canvas) {
+        $app.innerHTML = 'please use modern browsers like Chrome to get the best user experience.';
         return;
     }
     // minimal frp;

@@ -17,8 +17,8 @@ $> npm install
 
 ### via Yarn
 ```bash
-$> git clone https://github.com/huanhulan/petrol_pump.git
-$> cd petrol_pump
+$> git clone https://github.com/huanhulan/battle_of_paradigms.git
+$> cd battle_of_paradigms
 $> yarn install
 ```
 

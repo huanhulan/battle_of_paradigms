@@ -3,7 +3,6 @@
   "feature-detects": [
     "test/css/cssgrid",
     "test/css/flexbox",
-    "test/css/vhunit",
     "test/canvas"
   ]
 }
