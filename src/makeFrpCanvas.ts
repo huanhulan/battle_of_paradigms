@@ -10,7 +10,7 @@ export default (id, initDoc, frpLogic) => {
             return;
         }
 
-        let cDoc;
+        let res;
         const ctx = $canvas.ctx as CanvasRenderingContext2D;
         const sMouseDown = new StreamSink<IPos>();
         const sMouseUp = new StreamSink<IPos>();
@@ -58,16 +58,29 @@ export default (id, initDoc, frpLogic) => {
                     }
                     return false;
                 });
-                cDoc = frpLogic(sMouseDown, sMouseMove, sMouseUp, sShiftKey, initDoc);
+                res = frpLogic(sMouseDown, sMouseMove, sMouseUp, sShiftKey, initDoc);
             } else {
-                cDoc = frpLogic(sMouseDown, sMouseMove, sMouseUp, initDoc);
+                res = frpLogic(sMouseDown, sMouseMove, sMouseUp, initDoc);
             }
         } else {
-            cDoc = frpLogic(sMouseDown, sMouseUp, initDoc);
+            res = frpLogic(sMouseDown, sMouseUp, initDoc);
         }
-
+        let className;
+        if (res.cSelected) {
+            Operational.value(res.cSelected).listen(b => {
+                let className;
+                if (b) {
+                    className = "cursor-move";
+                } else {
+                    className = "cursor-pointer";
+                }
+                $canvas.canvas.className = `canvas ${className}`;
+            })
+        } else {
+            $canvas.canvas.className = "canvas cursor-move";
+        }
         // now let's paint!
-        sResize.snapshot1(cDoc).orElse(Operational.value(cDoc)).listen((doc) => {
+        sResize.snapshot1(res.cDocument).orElse(Operational.value(res.cDocument)).listen((doc) => {
             paint(doc, ctx, [CAT_BG, DOG_BG]);
         });
     });

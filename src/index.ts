@@ -1,7 +1,7 @@
 import makeFrpCanvas from './makeFrpCanvas';
 import {INIT_DOC} from './consts';
 import './style/index.scss';
-import {minimal_frp, dragging_frp, fixed_frp, shift_frp, refined_shift_frp} from './frp';
+import {minimal_frp, dragging_frp, fixed_frp, shift_frp, refined_shift_frp, glitch_frp} from './frp';
 import {Minimal, Dragging, Fixed, Shift} from './operational';
 import * as modernizrConfig from "../.modernizrrc.json";
 
@@ -23,6 +23,7 @@ window.onload = () => {
     makeFrpCanvas('fixed_frp', initDoc, fixed_frp);
     makeFrpCanvas('shift_frp', initDoc, shift_frp);
     makeFrpCanvas('refine_shift_frp', initDoc, refined_shift_frp);
+    makeFrpCanvas('glitch_frp', initDoc, glitch_frp);
 
 // operational
     new Minimal('minimal_op', initDoc);

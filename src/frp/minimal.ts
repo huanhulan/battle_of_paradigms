@@ -37,5 +37,5 @@ export default (sMouseDown: StreamSink<IPos>, sMouseUp: StreamSink<IPos>, docume
     })
         .hold(document));
 
-    return cDocument;
+    return {cDocument};
 }

@@ -59,5 +59,5 @@ export default (sMouseDown: StreamSink<IPos>,
 
     // add .orElse(sDragging)
     cDragging.loop(sStartDrag.orElse(sDrop.map(d => null)).hold(null));
-    return cDocument;
+    return {cDocument};
 }

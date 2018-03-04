@@ -63,74 +63,79 @@ html, body {
   #viewport {
     width: 200%;
     height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    float: left;
     overflow: hidden;
-  }
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
-    margin: 0;
-    padding: 0;
-    background-color: $milk-color;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: "minimal_op minimal_frp" "dragging_op dragging_frp" "fixed_op fixed_frp" "shift_op shift_frp";
-    &::-webkit-scrollbar {
-      width: 0 !important;
-    }
-    .canvas {
-      position: relative;
-      width: 100%;
-      height: 100vh;
+    .container {
       box-sizing: border-box;
-      border: 1px $light-black solid;
-      p {
-        width: 100%;
-        position: absolute;
-        text-align: center;
+      width: 50%;
+      height: 100%;
+      overflow-y: scroll;
+      margin: 0;
+      padding: 0;
+      background-color: $milk-color;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas: "minimal_op minimal_frp" "dragging_op dragging_frp" "fixed_op fixed_frp" "shift_op shift_frp" "refine_shift_op refine_shift_frp" "glitch_op glitch_frp";
+      &::-webkit-scrollbar {
+        width: 0 !important;
       }
-      canvas {
-        width: 100%;
-        cursor: move;
+      .canvas {
         position: relative;
-        z-index: 1;
-      }
-    }
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        border: 1px $light-black solid;
+        p {
+          width: 100%;
+          position: absolute;
+          text-align: center;
+        }
+        canvas {
+          width: 100%;
+          position: relative;
+          cursor: move;
+          z-index: 1;
+        }
 
-    .pic {
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-color: $white;
-    }
-    #minimal_op_pic {
-      background-image: url("../statics/minimal-op.png");
-    }
-    #minimal_frp_pic {
-      background-image: url("../statics/minimal.png");
-    }
-    #dragging_op_pic {
-      background-image: url("../statics/dragging-op.png");
-    }
-    #dragging_frp_pic {
-      background-image: url("../statics/dragging.png");
-    }
-    #fixed_op_pic {
-      background-image: url("../statics/fixed-op.png");
-    }
-    #fixed_frp_pic {
-      background-image: url("../statics/fixed.png");
-    }
-    #shift_op_pic {
-      background-image: url("../statics/axisLock-op.png");
-    }
-    #shift_frp_pic {
-      background-image: url("../statics/axisLock.png");
+        .cursor-move {
+          cursor: move;
+        }
+        .cursor-pointer {
+          cursor: pointer;
+        }
+      }
+
+      .pic {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: $white;
+      }
+      #minimal_op_pic {
+        background-image: url("../statics/minimal-op.png");
+      }
+      #minimal_frp_pic {
+        background-image: url("../statics/minimal.png");
+      }
+      #dragging_op_pic {
+        background-image: url("../statics/dragging-op.png");
+      }
+      #dragging_frp_pic {
+        background-image: url("../statics/dragging.png");
+      }
+      #fixed_op_pic {
+        background-image: url("../statics/fixed-op.png");
+      }
+      #fixed_frp_pic {
+        background-image: url("../statics/fixed.png");
+      }
+      #shift_op_pic {
+        background-image: url("../statics/axisLock-op.png");
+      }
+      #shift_frp_pic {
+        background-image: url("../statics/axisLock.png");
+      }
     }
   }
 }
