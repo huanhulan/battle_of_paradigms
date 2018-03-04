@@ -19,7 +19,7 @@ $> npm install
 ```bash
 $> git clone https://github.com/huanhulan/battle_of_paradigms.git
 $> cd battle_of_paradigms
-$> yarn install
+$> yarn
 ```
 
 ## How to use
